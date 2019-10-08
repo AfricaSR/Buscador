@@ -8,25 +8,26 @@
     <script>
         function busca(){
             var valor = document.getElementById('valor').value;
-            var numeros = new Array(500000);
-            for (var i = 0; i < 500000; i++){
-                numeros[i]=parseInt(Math.random() * 500000);
+            var numeros = new Array(1000000);
+            for (var i = 0; i < 1000000; i++){
+                numeros[i]=parseInt(Math.random() * 1000000);
             }
         
             var start = Date.now();
             
             var j;
-            for (j = 0; j < 500000; j++){
+            for (j = 0; j < 1000000; j++){
                 if (numeros[j]==valor){
-                    alert("Está.");
+		var end = Date.now();
+                    alert("Está. Encontrado en " + (end-start).getSeconds() + " segundos" );
                     break;
                 }
             }
-            if (j >= 499999){
-                alert("No está.");
+            if (j >= 999999){
+		var end = Date.now();
+                alert("No está. Terminado en " + (end-start).getSeconds() + " segundos" );
+		
             }
-            var end = Date.now();
-            alert("Terminado en " + ((end-start)/60)/60 + " Segundos");
         }
     </script>
 </head>

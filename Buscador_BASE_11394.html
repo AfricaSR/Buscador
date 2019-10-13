@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Buscador de Números</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        function busca(){
+            var valor = document.getElementById('valor').value;
+            var numeros = new Array(1000000);
+            for (var i = 0; i < 1000000; i++){
+                numeros[i]=parseInt(Math.random() * 1000000);
+            }
+        
+            var start = Date.now();
+            
+            var j;
+            for (j = 0; j < 1000000; j++){
+                if (numeros[j]==valor){
+		var end = Date.now();
+                    alert("Está. Encontrado en " + (end-start).getSeconds() + " segundos" );
+                    break;
+                }
+            }
+            if (j >= 999999){
+		var end = Date.now();
+                alert("No está. Terminado en " + (end-start).getSeconds() + " segundos" );
+		
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+    Introduce un Valor: <input type="number" id="valor"/>
+    <input type="submit" onclick="busca()" value="Envía">
+    </form>
+</body>
+</html>
